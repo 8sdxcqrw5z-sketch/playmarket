@@ -19,6 +19,8 @@ export interface Sector {
   headwinds: string[];
   color: string;
   icon: string;
+  isConsensus?: boolean;       // true = crowded / already a consensus trade
+  bottleneckTickers?: string[]; // named companies that are the actual bottleneck
 }
 
 export type RiskLevel = "low" | "medium" | "high" | "speculative";
@@ -40,6 +42,11 @@ export interface Stock {
   addedDate: string; // ISO date
   targetPrice?: number;
   currentPriceNote?: string;
+  // Bottleneck research fields
+  bearCase?: string;
+  killSwitch?: string;
+  lastVerifiedPrice?: number; // stale — check lastVerifiedDate before using
+  lastVerifiedDate?: string;  // ISO date of price observation
 }
 
 export type CatalystStatus = "upcoming" | "in-progress" | "completed" | "missed";

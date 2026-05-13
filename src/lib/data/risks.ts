@@ -91,4 +91,63 @@ export const RISKS: Risk[] = [
     mitigations: ["Diversify across sectors", "Include uncorrelated sectors (rare earth, power)", "Set position size limits"],
     probability: "medium",
   },
+
+  // ── Risks surfaced by bottleneck research (compiled May 13, 2026) ─────────
+
+  {
+    id: "r10",
+    title: "Crowded-Trade Consensus Capture",
+    description: "When a thematic ETF goes from launch to $6B AUM in 5 weeks (DRAM ETF: +90% in 5 weeks as of May 2026), the trade is consensus, not an edge. Buying at peak crowding embeds a mean-reversion risk that has nothing to do with the underlying thesis.",
+    category: "valuation",
+    severity: "high",
+    affectedSectors: ["semiconductors", "ai-infrastructure", "optical-connectivity"],
+    mitigations: [
+      "Check ETF AUM growth rate — exponential AUM growth signals consensus capture",
+      "Require a 20%+ pullback from the consensus-capture moment before sizing",
+      "Separate thesis quality (A+) from entry timing (F) — a great thesis at a crowded entry still loses money",
+    ],
+    probability: "high",
+  },
+  {
+    id: "r11",
+    title: "DOGE / 'Prioritizing the Warfighter' EO Overhang",
+    description: "The DOGE efficiency mandate and 'Prioritizing the Warfighter' executive order disproportionately target defense services contractors (LDOS, CACI, BAH) through cost-cutting, rebidding, and contractor headcount reductions. Defense primes (LMT, RTX, GE Aerospace) are less directly exposed.",
+    category: "regulatory",
+    severity: "medium",
+    affectedSectors: ["defense-drones", "undervalued-growth"],
+    mitigations: [
+      "Distinguish primes (LMT, RTX, NOC) from services contractors (LDOS, BAH, CACI) — different risk profiles",
+      "Monitor DOGE scorecard and DoD services budget line items",
+      "Use BAH <$150 or LDOS pullback as entry trigger only after overhang resolution is visible",
+    ],
+    probability: "high",
+  },
+  {
+    id: "r12",
+    title: "Single-Customer Concentration Disguised as Chokepoint",
+    description: "A company with 40%+ revenue from one customer looks like a bottleneck but is actually a single-customer dependency. CoreWeave (CRWV) is the clearest example — GPU cloud capacity that exists because of one anchor customer is not a moat. This pattern also applies to CRDO's insider selling signal.",
+    category: "execution",
+    severity: "high",
+    affectedSectors: ["ai-infrastructure", "undervalued-growth"],
+    mitigations: [
+      "Require customer concentration below 35% for any single customer before calling a business a bottleneck",
+      "Verify CRDO insider selling schedule before sizing",
+      "Screen for 10-K customer disclosure — any name withheld ('Customer A') warrants extra diligence",
+    ],
+    probability: "medium",
+  },
+  {
+    id: "r13",
+    title: "Entry-Timing Risk on High-Quality Names",
+    description: "A thesis-A+ / entry-timing-F combination destroys returns even when the underlying business is right. MU is the clearest example: HBM bottleneck thesis is correct, but buying at $797 with consensus target $478 means paying 67% above where analysts think fair value is. The business wins; the investor loses if entry discipline is absent.",
+    category: "valuation",
+    severity: "medium",
+    affectedSectors: ["semiconductors", "ai-infrastructure"],
+    mitigations: [
+      "Separate thesis quality from entry quality — grade them independently",
+      "Define entry zones in advance (MU: $500–550 clean, $600–650 post-earnings dip) and hold the discipline",
+      "Do not size a position just because the thesis is strong — the 15% hurdle applies at the entry price, not the thesis price",
+    ],
+    probability: "high",
+  },
 ];
