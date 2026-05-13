@@ -6,6 +6,30 @@ All prices, multiples, and analyst targets stored in the codebase are **stale by
 
 ---
 
+## Live price refresh (added May 13, 2026)
+
+The Dashboard now includes a **"↻ Refresh Prices"** button that fetches live data from the Financial Modeling Prep API for all watchlist tickers.
+
+**What is auto-refreshed** (stored in browser localStorage, never committed to git):
+- Current price
+- 52-week high / low
+- Market cap
+- Average daily dollar volume
+- P/E ratio (trailing twelve months — forward P/E requires FMP paid plan)
+
+**What is NOT auto-refreshed** (still manually curated in `src/lib/data/stocks.ts`):
+- Thesis text
+- Conviction tier
+- Bear case
+- Kill switch
+- Catalyst dates
+- Bottleneck classification
+- Everything else you wrote by hand
+
+The live prices live in the browser's localStorage under the key `playmarket_prices`. They are never committed to git — they are per-device, per-browser. If you clear your browser data or switch devices, click Refresh again.
+
+---
+
 ## Fields that need re-verification before showing live numbers
 
 ### Per-stock fields (in `src/lib/data/stocks.ts`)

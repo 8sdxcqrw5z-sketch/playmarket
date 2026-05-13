@@ -106,6 +106,21 @@ export interface PortfolioStructure {
   notes: string;
 }
 
+export interface PriceSnapshot {
+  ticker: string;
+  price: number;
+  weekHigh52: number;
+  weekLow52: number;
+  marketCap: number;
+  avgDailyVolumeDollars: number;
+  peRatioTrailing: number | null;
+  lastRefreshedAt: string; // ISO datetime
+}
+
+export type PriceRefreshStatus =
+  | { ticker: string; status: "ok"; snapshot: PriceSnapshot }
+  | { ticker: string; status: "failed"; error: string };
+
 export interface WeeklyReport {
   id: string;
   weekOf: string; // ISO date of Monday

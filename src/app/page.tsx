@@ -4,6 +4,7 @@ import { STOCKS } from "@/lib/data/stocks";
 import { CATALYSTS } from "@/lib/data/catalysts";
 import { RISKS } from "@/lib/data/risks";
 import { StatCard } from "@/components/cards/StatCard";
+import { PriceRefreshButton } from "@/components/PriceRefreshButton";
 
 const CONVICTION_COLORS: Record<number, string> = {
   5: "text-green-400",
@@ -211,6 +212,9 @@ export default function DashboardPage() {
           ))}
         </div>
       </section>
+
+      {/* Live price refresh */}
+      <PriceRefreshButton />
 
       {/* Quick action summary */}
       <section className="bg-indigo-950/40 border border-indigo-800/30 rounded-xl p-5">
